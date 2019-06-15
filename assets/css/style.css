@@ -1,0 +1,165 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+}
+
+/* First page */
+
+.img {
+    background: url(../images/initial-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 50%;
+    height: 100vh;
+    float: left;
+}
+
+.title {
+    font-weight: 600;
+    text-align: center;
+    font-size: 24px;
+}
+
+.signin {
+    margin-top: 110px;
+    width: 50%;
+    float: right;
+}
+
+.description p {
+    font-weight: 100;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 30px;
+    line-height: 22px;
+    text-align: center;
+}
+
+.username-form {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.username-form input {
+    border: none;
+    border-bottom: 1px solid;
+    width: 300px;
+    line-height: 40px;
+}
+
+.signup-btn,
+#google-btn {
+    display: flex !important;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#google-btn {
+    margin-top: 20px;
+}
+
+.enter-btn,
+.signup-btn,
+#google-btn {
+    background: #242323;
+    cursor: pointer;
+    color: white !important;
+    width: 300px;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+font-size: 12px;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.separate {
+    display: flex;
+    justify-content: center;
+    color: #d3d3d3;
+    margin: 40px 0;
+}
+
+.line-left,
+.line-right {
+    width: 125px;
+    height: 1px;
+    margin-top: 8px;
+    background: #d3d3d3;
+}
+
+.line-left {
+    margin-right: 17px;
+}
+
+.line-right {
+    margin-left: 17px;
+}
+
+/* Signed-page */
+
+.signed-page {
+    background: #d3d3d3;
+}
+
+.sidenav {
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #242323;
+    overflow-x: hidden;
+    padding-top: 30px;
+}
+
+.sidenav h2 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.sidenav a {
+    background: #646464;
+    width: 100%;
+    color: white;
+    display: flex;
+    padding: 20px 0 20px 50px;
+    text-decoration: none;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.icon img {
+    position: absolute;
+    width: 16px;
+    margin: 18px;
+}
+
+.centralized {
+    width: 80%;
+    float: right;
+}
+
+.container-dashboard {
+    display: flex;
+    justify-content: center;
+}
+
