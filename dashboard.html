@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Job Search Organizer</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- jQuery library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase Reference -->
+
+</head>
+
+<body class="signed-page">
+    <div class="sidenav">
+        <h2>The Job Search Organizer</h2>
+        <div class="sidenav-btn">
+            <div class="icon">
+                <img src="assets/images/" alt="Dashboard icon">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/" alt="Add job icon">
+                <a href="add-job.html">Add new job</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/" alt="Search icon">
+                <a href="search-job.html">Search job</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/" alt="Calendar icon">
+                <a href="calendar.html">Calendar</a>
+            </div>
+        </div>
+    </div>
+    <div class="centralized">
+        <div class="container-dashboard">
+            <!-- total applied counter -->
+            <div class="total-applied">
+                <h3>Total applied</h3>
+                <p id="jobCount"></p>
+                <img src="assets/images/" alt="Chart Blue Img">
+            </div>
+            <!-- total interviews counter -->
+            <div class="scheduled-interview">
+                <h3>Scheduled Interviews</h3>
+                <p>3 interviews</p>
+                <img src="assets/images/" alt="Chart Blue Img">
+            </div>
+        </div>
+        <div class="table-job">
+            <!-- saved jobs table -->
+            <table class="rtable">
+                <h2>Your saved jobs</h2>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Date Applied</th>
+                        <th>Status</th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+                <tbody class="tbody saved-jobs" id="saved-jobs">
+                    <!-- JS adds rows here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>
