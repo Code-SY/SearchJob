@@ -2,10 +2,22 @@ html, * {
     margin: 0;
 }
 
+.container{
+    width: 1200px;
+}
+
 body {
     height: 100%;
     margin: 0;
     padding: 0;
+}
+
+h1{
+    color:black;font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    padding-bottom: 20px;
+
 }
 
 h2 {
