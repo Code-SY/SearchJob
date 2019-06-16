@@ -16,8 +16,6 @@
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-
-
     <link rel="stylesheet" type="text/css" href="assets/css/searchAPI.css">
 </head>
 
@@ -61,7 +59,7 @@
                 <nav>
                     <ul class="sidebar-nav" data-bind="foreach: filteredJobs">
                         <li>
-                            <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setLocations"></a>
+                            <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setJobs"></a>
                         </li>
                     </ul>
                 </nav>
