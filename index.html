@@ -53,9 +53,9 @@
                 </form>
                 <hr>
                 <nav>
-                    <ul class="sidebar-nav" data-bind="foreach: filteredAttractions">
+                    <ul class="sidebar-nav" data-bind="foreach: filteredJobs">
                         <li>
-                            <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setPlace"></a>
+                            <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setLocations"></a>
                         </li>
                     </ul>
                 </nav>
@@ -68,7 +68,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <a class="btn btn-default" href="#menu-toggle" id="menu-toggle">Filter places</a>
+                        <a class="btn btn-default" href="#Jobs-toggle" id="jobs-toggle">Filter locations</a>
                     </div>
                 </div>
             </div>
