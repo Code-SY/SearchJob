@@ -1,49 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>The Search Job Organizer</title>
-    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <meta name="google-signin-client_id"
-        content="937021709360-8mhd249ib635g5jaghbqf1r0dm6qf4ep.apps.googleusercontent.com">
-    <meta name="google-signin-cookiepolicy" content="single_host_origin">
-    <meta name="google-signin-scope" content="profile email">
-        <!-- Firebase Reference -->
-    <script></script>
+<html>
+<header>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- Bootstrap CSS -->
     <!-- jQuery library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-<body class="index">
-    <div class="img"></div>
-    <div class="signin">
-        <div class="title">THE JOB SEARCH ORGANIZER</div>
-        <div class="description">
-            <p>The platform to organize and connect your job search.
-            </p>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Job search Map </title>
 
-        </div>
+</header>
 
-        <div class="buttons">
-            <button class="login-btn enter-btn">Login</button>
-
-            <div class="separate">
-                <div class="line-left"></div>
-                or
-                <div class="line-right"></div>
-            </div>
-
-            <button class="signup-btn">Sign Up</button>
-            <button id="google-btn">Sign In With Google</button>
-        </div>
-
+<body>
+    <div class="header">
+        <h1 class="title">The Job Search Map.</h1>
     </div>
+    <nav class="navbar navbar-expand-md-dar bg-dark">
+        <a class="nav-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedCount">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedCountent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item active"><a class="nav-link" href="#">Job Title, Keywords,or Company</a>
+                </li>
+                <li class="nav-item active"><a class="nav-link" href="#">Job</a>
+                </li>
+                <li class="nav-item active"><a class="nav-link" href="#">Seattle WA</a>
+                </li>
+            </ul>
+            <form class="form-inline">
+                <imput class="form-control mr-sm-2" type="search" placeholder="search">
+                    <button class="btn-light my-sm-o" type="search">searchs</button>
+            </form>
 
-    <script src="assets/javascript/app.js"></script>
+        </div>
+    </nav>
+
+    <main id="wrapper">
+        <!-- Sidebar -->
+        <aside id="sidebar-wrapper">
+            <section>
+                <h2 class="title">The platform to job search.</h2> 
+                <form action="">
+                    <h4> Filter </h4>
+                    <input id="search-box" type="search" data-bind="textInput: filter">
+                    <input type="submit" value="Reset">
+                </form>
+                <hr>
+                <nav>
+                    <ul class="sidebar-nav" data-bind="foreach: filteredAttractions">
+                        <li>
+                            <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setPlace"></a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- <div id="error" class="error">Unable to connect to Wikipedia</div> -->
+            </section>
+        </aside>
+        <!-- Page Content -->
+        <div id="map"></div>
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a class="btn btn-default" href="#menu-toggle" id="menu-toggle">Filter places</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src='js/map.js'></script>
+
 </body>
 
 </html>
