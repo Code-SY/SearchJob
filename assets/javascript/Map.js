@@ -1,21 +1,6 @@
 <script src="searchAPI.js"></script>
 
-<<<<<<< HEAD
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
-=======
-$("button").on("click", function () { 
-    var map = $(this).attr("data-map");
-    var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
-+ "&api_key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=places";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) { 
-        console.log(response);
-        var results = response.data;
-    });
-});
->>>>>>> origin
 
 var MapLimit = {
   api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",
@@ -28,10 +13,10 @@ var MAP = $.get(
   {
     url: queryMap + MapLimit,
     method: "GET",
-    dataType: "jsonp"
+    dataType: "json"
   });
 
-function initMap() {
+function initMap(Starbucks, Bothell, WA) {
   var options = {
     zoom: 8, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
