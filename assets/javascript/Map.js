@@ -7,7 +7,7 @@ $("button").on("click", function () {
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) { 
+    }).then(function (response) { git
         console.log(response);
         var results = response.data;
     });
