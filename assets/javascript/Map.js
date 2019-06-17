@@ -1,8 +1,6 @@
 <script src="searchAPI.js"></script>
 
-<<<<<<< HEAD
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
-=======
 $("button").on("click", function () { 
     var map = $(this).attr("data-map");
     var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
@@ -15,7 +13,6 @@ $("button").on("click", function () {
         var results = response.data;
     });
 });
->>>>>>> origin
 
 var MapLimit = {
   api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",
