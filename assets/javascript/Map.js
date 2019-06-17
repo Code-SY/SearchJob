@@ -3,7 +3,7 @@
 $("button").on("click", function () { 
     var map = $(this).attr("data-map");
     var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
- + "&api_key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=places";
++ "&api_key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=places";
     $.ajax({
         url: queryURL,
         method: "GET"
