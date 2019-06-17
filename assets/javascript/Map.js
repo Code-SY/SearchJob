@@ -30,10 +30,10 @@ var MAP = $.get(
   {
     url: queryMap + MapLimit,
     method: "GET",
-    dataType: "jsonp"
+    dataType: "json"
   });
 
-function initMap() {
+function initMap(Starbucks, Bothell, WA) {
   var options = {
     zoom: 8, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
