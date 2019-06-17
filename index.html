@@ -1,100 +1,83 @@
 <!DOCTYPE html>
 <html>
-<head>
+<header>
     <meta charset="utf-8">
-    <title>Job search Map </title>
+    <title>Job search Map Project </title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- jQuery library-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-     <!-- Bootstrap CSS -->
-     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
         integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/searchAPI.css">
-</head>
+
+</header>
 
 <body>
     <div class="header">
-        <h1 class="title">The Job Search Map Project.</h1>
+        <h1 class="header">The Job Search Map Project.</h1>
     </div>
-    <nav class="navbar navbar-expand-md-dar bg-dark">
-        <a class="nav-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedCount">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedCountent">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item active"><a class="nav-link" href="#">Job Title, Keywords,or Company</a>
-                </li>
-                <li class="nav-item active"><a class="nav-link" href="#">Job</a>
-                </li>
-                <li class="nav-item active"><a class="nav-link" href="#">Seattle WA</a>
-                </li>
-            </ul>
-            <form class="form-inline">
-                <imput class="form-control mr-sm-2" type="search" placeholder="search">
-                    <button class="btn-light my-sm-o" type="search">searchs</button>
-            </form>
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <a href="#" class="navbar-brand">Job Tittles </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        </div>
-    </nav>
-
-    <main id="wrapper">
-        <!-- Sidebar -->
-        <aside id="sidebar-wrapper">
-            <section>
-                <h2 class="title">The platform for searching Jobs.</h2> 
-                <form action="">
-                    <h4> Filter </h4>
-                    <input id="searchTerms" type="search">
-                    <button id="search" class="btn btn-primary">Search</button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav">
+                    <a href="#" class="nav-item nav-link active">Keywords, or Company</a>
+                    <a href="#" class="nav-item nav-link">Job</a>
+                    <a href="#" class="nav-item nav-link">Seattle, WA</a>
+                </div>
+                <form class="form-inline ml-auto">
+                    <input type="text" class="form-control mr-sm-2" placeholder="">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-                <hr>
-                <nav>
-                    <ul class="sidebar-nav" data-bind="foreach: filteredJobs">
-                        <li>
-                            <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setJobs"></a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- <div id="error" class="error">Unable to connect to Wikipedia</div> -->
-            </section>
-        </aside>
-        <!-- Page Content -->
-        <div id="map"></div>
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
+            </div>
+        </nav>
 
-                    <!-- Search API result container -->
-                    <div id="search-results" class="col-4">
-
-                    </div>
-                    <div id="job-description" class="col-8">
-
+        <main id="wrapper">
+            <!-- Sidebar -->
+            <aside id="sidebar-wrapper">
+                <section>
+                    <h2 class="title">The platform for searching Jobs</h2>
+                    <form action="">
+                        <h4> Filter </h4>
+                        <input id="search-box" type="search" data-bind="textInput: filter">
+                        <input type="submit" value="Reset">
+                    </form>
+                    <hr>
+                    <nav>
+                        <ul class="sidebar-nav" data-bind="foreach: filteredJobs">
+                            <li>
+                                <a class="list-sidebar" data-bind="text: marker.title, click: $parent.setLocation"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- <div id="error" class="error">Unable to connect to Wikipedia</div> -->
+                </section>
+            </aside>
+            <!-- Page Content -->
+            <div id="map"></div>
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <a class="btn btn-default" href="#menu-toggle" id="menu-toggle">Filter jobs</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
 
-    <!-- Templates needed for search API functionality -->
-    <div style="display:none;">
-        <div id="searchingTemplate" class="loader"></div>
-        <div id="noResultsTemplate">No results</div>
-        <div id="errorTemplate">Error happened</div>
-    </div>
-    
-    <!--<script src="js/jquery.js"></script>-->
-    <!-- Bootstrap Core JavaScript -->
-    <!--<script src="js/bootstrap.min.js"></script>-->
-
-    <!--<script src='js/map.js'></script>-->
-
+        <!-- <script src="js/jquery.js"></script> -->
+        <!-- <script src='javascript/knockout.js'></script>  -->
+        <!-- Bootstrap Core JavaScript
+<script src="javascript/bootstrap.min.js"></script> -->
 
     <script src="assets/javascript/searchAPI.js"></script>
     <script src="assets/javascript/app.js"></script>
