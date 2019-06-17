@@ -19,11 +19,14 @@ var MAP = $.get(
 function initMap() {
   var options = {
     zoom: 8, //highest value is 14
-    center: { lat: 42, lng: -70}//latitude and longitude go here. 
+    center: { lat: 42, lng: -70 }//latitude and longitude go here. 
   }
   //creates the map
   var map = new google.maps.Map(document.getElementById('map'), options);
-  
+  google.maps.event.addListener(map, 'click',
+    function (event) {
+      addMarker({name, city, state});
+});
   //create the marker
   /*
   var marker = new google.maps.Marker({
@@ -38,10 +41,9 @@ function initMap() {
     infoWindow.open(map, marker);
   });
   */
-}
 
 markers = [
-  addMarker({searchJobs.response.job.location})
+  addMarker({ name, city, state })
 ];
 
 for (var i = 0; i < markers.length; i++) {
