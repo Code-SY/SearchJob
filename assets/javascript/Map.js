@@ -1,4 +1,4 @@
-<script src="searchAPI.js"></script>
+//<script src="searchAPI.js"></script>
 
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
