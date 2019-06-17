@@ -1,3 +1,4 @@
+//***********Added the searchAPI.js to index.html */
 // Moved to app.js
 //$(document).ready(function () {
 //    $("#search").click(function () {
@@ -8,8 +9,9 @@
 //    keywords: "javascript, php, ruby",
 //    location: ""
 //}
-
+// *************Why the name containerID?
 var containerId = "#search-results";
+console.log(containerId);
 
 var searchJobs = function (searchCriteria, clickHandler) {
     // Validate input
@@ -19,6 +21,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
 
     $(containerId).empty();
     $("#job-description").empty();
+    
 
     $(containerId).append($("#searchingTemplate").clone());
 
@@ -41,6 +44,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
         {
             url: apiUri + apiQuery,
             method: "GET",
+            //************What is datatype JSONP?
             dataType: "jsonp"
         });
 
