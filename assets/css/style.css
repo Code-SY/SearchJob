@@ -1,326 +1,146 @@
-* {
-box-sizing: border-box;
+html, * {
+    margin: 0;
 }
 
 body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    margin: 0 auto;
+    height: 100%;
+    margin: 0;
     padding: 0;
-    width: 100%;
 }
 
-/* First page */
+h2 {
+    margin: 0;
+    padding: 0;
+    color: red;
+    text-align: left;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
 
-.img {
-    background: url(../images/initial-img.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    width: 50%;
-    height: 100vh;
-    float: left;
+h4 {
+    font-size: 16px;
+    color: gray;
+    font-weight: normal;
+    padding-left: 25px;
 }
 
 .title {
-    font-weight: 600;
+    font-weight: bold;
+    color: red;
+    font-size: 30px;
     text-align: center;
-    font-size: 24px;
+    padding-bottom: 20px;
 }
 
-.signin {
-    margin-top: 110px;
-    width: 50%;
-    float: right;
-}
-
-.description p {
-    font-weight: 100;
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 30px;
-    line-height: 22px;
-    text-align: center;
-}
-
-.username-form {
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 40px;
-}
-
-.username-form input {
-    border: none;
-    border-bottom: 1px solid;
-    width: 300px;
-    line-height: 40px;
-}
-
-.signup-btn,
-#google-btn {
-    display: flex !important;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-#google-btn {
-    margin-top: 20px;
-}
-
-.enter-btn,
-.signup-btn,
-#google-btn {
-    background: #242323;
-    cursor: pointer;
-    color: white !important;
-    width: 300px;
-    padding: 10px 0;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-font-size: 12px;
-}
-
-.buttons {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.separate {
-    display: flex;
-    justify-content: center;
-    color: #d3d3d3;
-    margin: 40px 0;
-}
-
-.line-left,
-.line-right {
-    width: 125px;
-    height: 1px;
-    margin-top: 8px;
-    background: #d3d3d3;
-}
-
-.line-left {
-    margin-right: 17px;
-}
-
-.line-right {
-    margin-left: 17px;
-}
-
-/* Signed-page */
-
-.signed-page {
-    background: #d3d3d3;
-}
-
-.sidenav {
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    z-index: 1;
+#map {
+    position: absolute;
     top: 0;
     left: 0;
-    background-color: #242323;
-    overflow-x: hidden;
-    padding-top: 30px;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 0;
 }
 
-.sidenav h2 {
-    color: white;
-    text-transform: uppercase;
-    text-align: center;
-    font-weight: 600;
-    margin-bottom: 30px;
+.imageinfo {
+    width: 110px;
+    float: right;
+    padding: 5px;
 }
 
-.sidenav a {
-    background: #646464;
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #fff;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
     width: 100%;
-    color: white;
-    display: flex;
-    padding: 20px 0 20px 50px;
-    text-decoration: none;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 5px;
-}
-
-.icon img {
     position: absolute;
-    width: 16px;
-    margin: 18px;
+    padding: 15px;
 }
 
-.centralized {
-    width: 80%;
-    float: right;
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
 }
 
-.container-dashboard {
-    display: flex;
-    justify-content: center;
+/* Sidebar Styles */
+
+#search-box {
+    margin-left: 25px;
 }
 
-.total-applied {
-    margin-right: 40px;
-}
-
-.scheduled-interview {
-    margin-left: 20px;
-}
-
-.total-applied,
-.scheduled-interview {
-    width: 370px;
-    height: 117px;
-    background: white;
-    margin-top: 76px;
-}
-
-.total-applied h3,
-    .scheduled-interview h3 {
-    font-size: 15px;
-    color: gray;
-    padding: 20px 0 0 20px;
-}
-
-.total-applied p,
-.scheduled-interview p {
-    margin-top: 36px;
-    width: 130px;
-    float: left;
-    font-weight: 400;
-    font-size: 20px;
-    padding-left: 20px;
-}
-
-.total-applied img,
-.scheduled-interview img {
-    width: 130px;
-    padding-right: 20px;
-}
-
-.table-job {
-    width: 780px;
-    margin: 0 auto;
-    background: white;
-    margin-top: 60px;
-    padding: 20px;
-}
-
-.rtable {
-    width: 100%;
-}
-
-.table-job h2,
-.new-job h2 {
-    font-size: 15px;
-    color: gray;
-    margin-bottom: 15px;
-}
-
-.table-job thead {
-    text-align: left;
-    background: #f5f5f5;
-    color: #b2b2b2;
-    line-height: 45px;
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: 500;
-}
-
-tbody th,
-tbody td {
-    padding: 20px 0;
-    font-size: 14px;
-}
-
-tbody tr {
-    border-bottom: 1px solid #ddd;
-}
-
-tbody tr:last-child {
-    border: none;
-}
-
-thead th,
-thead td,
-tbody th,
-tbody td {
-    padding-left: 20px;
-}
-
-a {
-    text-decoration: none;
-}
-
-.calendar-img {
-    margin-top: 68px;
+.error {
+    background-color: red;
+    padding: 5px;
+    margin: 10px;
     text-align: center;
 }
 
-
-/* Company page */
-
-.company {
-    background: white;
-    max-width: 800px;
-    margin: 76px auto;
-    padding: 30px;
-    overflow: auto;
+.list-sidebar {
+    color: black;
 }
 
-.company h2 {
-    font-size: 25px;
-    margin-bottom: 8px;
+.list-sidebar:hover {
+    color: red;
+    position: absolute;
+    margin: 0 0 0 10px;
+    width: 250px;
+    padding: 0;
+    list-style: none;
 }
 
-.job-p {
-    color: gray;
-    margin-bottom: 20px;
-}
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
 
-.job-description h3 {
-    text-decoration: underline;
-    margin-bottom: 10px;
-}
+    #wrapper.toggled {
+        padding-left: 0;
+    }
 
-.job-description p {
-    font-size: 14px;
-}
+    #sidebar-wrapper {
+        width: 270px;
+    }
 
-.job-description button {
-    float: right;
-    border: none;
-    text-decoration: none;
-}
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
 
-.form-info {
-    margin-top: 70px;
-}
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
 
-#date-applied,
-#contact,
-#app-summary,
-#interview,
-#followUp,
-#status {
-    padding-left: 10px;
-    margin-left: 20px;
-}
-
-.user-input h4 {
-    float: left;
-}
-
-.user-input span {
-    margin-left: 20px;
-    font-weight: 200;
-}
-
-.user-input p {
-    font-size: 12px;
-    color: gray;
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }
