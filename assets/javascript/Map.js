@@ -1,31 +1,57 @@
-//Isn't going to be button on click just placeholder
+<script src="searchAPI.js"></script>
 
-$("button").on("click", function () { 
-    var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
- + "&api_key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&callback=initMap";
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-    }).then(function (response) { 
-        console.log(response);
-        var results = response.data;
-    });
-});
+var queryMap = "https://maps.googleapis.com/maps/api/js?";
+
+var MapLimit = {
+  api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",
+  page: 1,
+  method: "callback=initMap",
+  format: "json",
+};
+
+var MAP = $.get(
+  {
+    url: queryMap + MapLimit,
+    method: "GET",
+    dataType: "jsonp"
+  });
 
 function initMap() {
   var options = {
     zoom: 8, //highest value is 14
-    center: {lat: ,lng:- }//latitude and longitude go here. 
+    center: { lat: 42, lng: -70}//latitude and longitude go here. 
   }
   //creates the map
   var map = new google.maps.Map(document.getElementById('map'), options);
+  
   //create the marker
+  /*
   var marker = new google.maps.Marker({
-    position: {lat: ,lng:- }
+    position: { lat: , lng: - },
     map: map,
-    image: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
   });
-var infoWindow = new google.maps.InfoWindow({
+  var infoWindow = new google.maps.InfoWindow({
     content: '<h1></h1>'
-});
+  });
+  marker.addListener('click', function () {
+    infoWindow.open(map, marker);
+  });
+  */
+}
+
+markers = [
+  addMarker({searchJobs.response.job.location})
+];
+
+for (var i = 0; i < markers.length; i++) {
+  addMarker([i]);
+}
+
+function addMarker(coords) {
+  var marker = new google.maps.Marker({
+    position: props.coords,
+    map: map,
+    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+  });
 }
