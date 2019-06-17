@@ -12,6 +12,19 @@ body {
     padding: 0;
 }
 
+.form-inline{
+background-color: rgb(55, 236, 55);
+}
+
+.bg-light{
+    background-color: gainsboro !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0,0,0,.5);
+    word-spacing: 5px;
+}
+
 h1{
     color:black;font-weight: bold;
     font-size: 30px;
@@ -26,7 +39,7 @@ h2 {
     color: red;
     text-align: left;
     padding-bottom: 5px;
-    font-size: 20px;
+    font-size: 10px;
 }
 
 h4 {
