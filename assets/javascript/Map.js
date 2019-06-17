@@ -57,3 +57,4 @@ function addMarker(coords) {
     icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
   });
 }
+}
