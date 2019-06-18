@@ -1,12 +1,27 @@
-<script src="searchAPI.js"></script>
+//<script src="searchAPI.js"></script>
 
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
+
+$("button").on("click", function () { 
+    var map = $(this).attr("data-map");
+    var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
++ "&api_key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=places";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) { 
+        console.log(response);
+        var results = response.data;
+    });
+});
+
 
 var MapLimit = {
   api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",
   page: 1,
   method: "callback=initMap",
-  format: "json",
+  // removed the coma after json on line 24. mh
+  format: "json"
 };
 
 var MAP = $.get(
