@@ -140,3 +140,62 @@ function mergeObjects(obj1, obj2) {
 
     return result;
 }
+
+var queryMap = "https://maps.googleapis.com/maps/api/js?";
+
+var MapLimit = {
+  api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",
+  page: 1,
+  method: "callback=initMap",
+  format: "json",
+};
+
+var MAP = $.get(
+  {
+    url: queryMap + MapLimit,
+    method: "GET",
+    dataType: "json"
+  });
+
+function initMap(Starbucks, Bothell, WA) {
+  var options = {
+    zoom: 8, //highest value is 14
+    center: { lat: 42, lng: -70 }//latitude and longitude go here. 
+  }
+  //creates the map
+  var map = new google.maps.Map(document.getElementById('map'), options);
+  google.maps.event.addListener(map, 'click',
+    function (event) {
+      addMarker({name, city, state});
+});
+  //create the marker
+  /*
+  var marker = new google.maps.Marker({
+    position: { lat: , lng: - },
+    map: map,
+    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+  });
+  var infoWindow = new google.maps.InfoWindow({
+    content: '<h1></h1>'
+  });
+  marker.addListener('click', function () {
+    infoWindow.open(map, marker);
+  });
+  */
+
+markers = [
+  addMarker({ name, city, state })
+];
+
+for (var i = 0; i < markers.length; i++) {
+  addMarker([i]);
+}
+
+function addMarker(coords) {
+  var marker = new google.maps.Marker({
+    position: props.coords,
+    map: map,
+    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+  });
+}
+}
