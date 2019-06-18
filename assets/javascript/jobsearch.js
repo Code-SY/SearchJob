@@ -207,7 +207,7 @@ var MAP = $.get(
 
 function initMap(Starbucks, Bothell, WA) {
   var options = {
-    zoom: 8, //highest value is 14
+    zoom: 3, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
   }
   //creates the map
