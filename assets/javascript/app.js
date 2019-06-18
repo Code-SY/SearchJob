@@ -14,6 +14,9 @@ $(document).ready(function () {
     });
 });
 
+
+
+
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting

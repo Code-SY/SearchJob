@@ -3,11 +3,9 @@ console.log("I see you")
 $(document).ready(function () {
   $("#search").click(function (evt) {
       evt.preventDefault();
-
       var searchTerms = $("#searchTerms").val();
-
       var criteria = {
-          keywords: searchTerms,
+          keywords: "javascript, php, ruby",
           location: ""
       };
 
@@ -38,10 +36,8 @@ var showOnMapHandler = function(job) {
 //    keywords: "javascript, php, ruby",
 //    location: ""
 //}
-// *************Why the name containerID?
-var containerId = "#search-results";
-console.log(containerId);
 
+var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
     // Validate input
     if (searchCriteria.keywords === "") {
