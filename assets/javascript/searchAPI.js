@@ -6,7 +6,7 @@
 //});
 //var criteria = {
 //    keywords: "javascript, php, ruby",
-//    location: ""
+//    location: "name, city, state"
 //}
 
 var containerId = "#search-results";
@@ -14,7 +14,7 @@ var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
     // Validate input
     if (searchCriteria.keywords === "") {
-        return false;
+        //return false;
     }
 
     $(containerId).empty();
@@ -122,6 +122,7 @@ var clickHandler = function (job) {
 
     $(this).addClass("job-selected");
     $("#job-description").html(job.description);
+    $("#job-description").dialog();
 }
 
 function mergeObjects(obj1, obj2) {
