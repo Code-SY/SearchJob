@@ -125,6 +125,12 @@ span {
         transform: rotate(360deg);
     }
 }
+/* added styling for map box mh*/
+#map{
+  height: 400px;
+  width: 50vw;
+
+}
 
 .job-selected {
     background-color: lightgray;
