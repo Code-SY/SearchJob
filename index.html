@@ -10,9 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Bootstrap CSS -->
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
         integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
@@ -22,17 +24,16 @@
 
 <body>
 
-    <div class="grid-container">
+        <div class="wrapper">
+            <header class="alt-bg">
         <div class="header">
-            <h1>Find A <span> Job</span>You</span>Love</h1>
-        </div>
 
-        <form>
-    </div class="form-box">
-    <input id="searchTerms" class="search-field skills" name="search" type="text"
-        placeholder="Job Tittle, keywords, Company ...">
-    <input id="searchLocation" class="search-field location" name="location" placeholder="Location" type="text">
-    <button id="searchBtn" class="search-btn" type="submit">Search</button>
+            <form>
+                <h1>Find A <span> Job</span>You </span>Love</h1>
+        </div class="form-box">
+        <input class="search-field skills" name="search" type="text" placeholder="Job Tittle, keywords, Company ..." />
+        <input class="search-field location" name="location" type="text" placeholder="Location" />
+        <button class="search-btn" type="button">Search</button>
     </div>
     </form>
     </div>
@@ -47,12 +48,20 @@
         <div id="map" class="map"></div>
     </aside>
 
-    <div class=“clear”></div>
+    <div class="clear"></div>
+    
+    <footer class="alt-bg">
+        <p class="title">footer</p>
+    </footer>
+    </div>
+    
+
 
    <footer class=“alt-bg”>
        <p class=“title”>footer</p>
    </footer>
    </div>
+
 
     <!--<script src="./assets/javascript/searchAPI.js"></script>
     <script src="./assets/javascript/app.js"></script>-->
@@ -73,6 +82,7 @@
     <!-- added the call for the mapping function. added the script tags for google maps -->
     <script>
         function initMap() {
+
 
         }
     </script>
