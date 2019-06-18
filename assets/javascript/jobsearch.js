@@ -189,6 +189,22 @@ var MAP = $.get(
     dataType: "json"
   });
 
+  new google.maps.Geocoder();
+  var name = "";
+  var city = "";
+  var state = "";
+  var address = [name, city, state];
+
+  geocoder.geocode({'address': address}, function(results, status) {
+  
+    if (status == google.maps.GeocoderStatus.OK) {
+      var latitude = results[0].geometry.location.lat();
+      var longitude = results[0].geometry.location.lng();
+      alert(latitude);
+      alert(longitude);
+    }
+    });
+   
 function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
   var options = {
     zoom: 8, //highest value is 14
