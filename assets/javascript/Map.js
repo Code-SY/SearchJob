@@ -1,5 +1,3 @@
-//<script src="searchAPI.js"></script>
-
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
 var MapLimit = {
@@ -17,7 +15,7 @@ var MAP = $.get(
     dataType: "json"
   });
 
-function initMap(Starbucks, Bothell, WA) {
+function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
   var options = {
     zoom: 8, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
@@ -28,30 +26,16 @@ function initMap(Starbucks, Bothell, WA) {
     function (event) {
       addMarker({name, city, state});
 });
-  //create the marker
-  /*
-  var marker = new google.maps.Marker({
-    position: { lat: , lng: - },
-    map: map,
-    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-  });
-  var infoWindow = new google.maps.InfoWindow({
-    content: '<h1></h1>'
-  });
-  marker.addListener('click', function () {
-    infoWindow.open(map, marker);
-  });
-  */
-
+//creates the marker
 markers = [
-  addMarker({ name, city, state })
+  addMarker({name, city, state })
 ];
 
-for (var i = 0; i < markers.length; i++) {
+for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
   addMarker([i]);
 }
 
-function addMarker(coords) {
+function addMarker(coords) { //coords is whatever variable is used in searchAPI
   var marker = new google.maps.Marker({
     position: props.coords,
     map: map,
