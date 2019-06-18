@@ -1,4 +1,4 @@
-console.log("I see you")
+
 // app.js
 $(document).ready(function () {
   $("#search").click(function (evt) {

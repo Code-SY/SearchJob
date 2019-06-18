@@ -44,7 +44,6 @@ var searchJobs = function (searchCriteria, clickHandler) {
         {
             url: apiUri + apiQuery,
             method: "GET",
-            //************What is datatype JSONP?
             dataType: "jsonp"
         });
 
@@ -140,6 +139,7 @@ function mergeObjects(obj1, obj2) {
 
     return result;
 }
+<<<<<<< HEAD
 
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
@@ -201,3 +201,5 @@ function addMarker(coords) {
   });
 }
 }
+=======
+>>>>>>> bd656ae4ee3106b05d977be4599b95cdf8eab78b

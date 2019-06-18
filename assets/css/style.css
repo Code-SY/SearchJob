@@ -101,6 +101,12 @@ span{
   background: rgba(255, 255,255, 0.5);
   padding: 30px;
 }
+/* added styling for map box mh*/
+#map{
+  height: 400px;
+  width: 50vw;
+
+}
 
 
 @media(min-width:768px) {
