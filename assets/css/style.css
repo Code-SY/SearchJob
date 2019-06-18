@@ -12,9 +12,9 @@ body {
     padding: 0;
 }
 
-.form-inline{
+/* .form-inline{
 background-color: rgb(55, 236, 55);
-}
+} */
 
 .bg-light{
     background-color: gainsboro !important;
@@ -63,7 +63,7 @@ h4 {
     left: 0;
     width: 100% !important;
     height: 100% !important;
-    z-index: 0;
+    z-index: -1;
 }
 
 .imageinfo {
