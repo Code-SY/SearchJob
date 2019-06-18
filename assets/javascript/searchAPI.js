@@ -44,7 +44,6 @@ var searchJobs = function (searchCriteria, clickHandler) {
         {
             url: apiUri + apiQuery,
             method: "GET",
-            //************What is datatype JSONP?
             dataType: "jsonp"
         });
 
@@ -140,6 +139,7 @@ function mergeObjects(obj1, obj2) {
 
     return result;
 }
+<<<<<<< HEAD
 
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
@@ -149,15 +149,30 @@ var MapLimit = {
   method: "callback=initMap",
   format: "json",
 };
-
 var MAP = $.get(
   {
     url: queryMap + MapLimit,
     method: "GET",
     dataType: "json"
   });
+  
+  new google.maps.Geocoder();
+  var name = "";
+  var city = "";
+  var state = "";
+  var address = (name, city, state);
 
-function initMap(Starbucks, Bothell, WA) {
+  geocoder.geocode({'address': address}, function(results, status) {
+  
+    if (status == google.maps.GeocoderStatus.OK) {
+      var latitude = results[0].geometry.location.lat();
+      var longitude = results[0].geometry.location.lng();
+      alert(latitude);
+      alert(longitude);
+    }
+    });
+   
+function initMap() {
   var options = {
     zoom: 8, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
@@ -168,20 +183,6 @@ function initMap(Starbucks, Bothell, WA) {
     function (event) {
       addMarker({name, city, state});
 });
-  //create the marker
-  /*
-  var marker = new google.maps.Marker({
-    position: { lat: , lng: - },
-    map: map,
-    icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-  });
-  var infoWindow = new google.maps.InfoWindow({
-    content: '<h1></h1>'
-  });
-  marker.addListener('click', function () {
-    infoWindow.open(map, marker);
-  });
-  */
 
 markers = [
   addMarker({ name, city, state })
@@ -191,6 +192,7 @@ for (var i = 0; i < markers.length; i++) {
   addMarker([i]);
 }
 
+
 function addMarker(coords) {
   var marker = new google.maps.Marker({
     position: props.coords,
@@ -199,3 +201,5 @@ function addMarker(coords) {
   });
 }
 }
+=======
+>>>>>>> bd656ae4ee3106b05d977be4599b95cdf8eab78b
