@@ -1,4 +1,18 @@
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
+$("button").on("click", function () { 
+    var map = $(this).attr("data-map");
+    var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
++ "&api_key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=places";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) { git
+        console.log(response);
+        var results = response.data;
+    });
+});
+=======
+>>>>>>> 88dc6a08df25956eae5d78d2f664a4f72b404d7e
 
 var MapLimit = {
   api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",

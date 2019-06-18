@@ -2,14 +2,12 @@
 // app.js
 $(document).ready(function () {
   $("#search").click(function (evt) {
-    evt.preventDefault();
-
-    var searchTerms = $("#searchTerms").val();
-
-    var criteria = {
-      keywords: searchTerms,
-      location: ""
-    };
+      evt.preventDefault();
+      var searchTerms = $("#searchTerms").val();
+      var criteria = {
+          keywords: "javascript, php, ruby",
+          location: ""
+      };
 
     searchJobs(criteria, showOnMapHandler);
   });
@@ -38,10 +36,8 @@ var showOnMapHandler = function (job) {
 //    keywords: "javascript, php, ruby",
 //    location: ""
 //}
-// *************Why the name containerID?
-var containerId = "#search-results";
-console.log(containerId);
 
+var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
   // Validate input
   if (searchCriteria.keywords === "") {
@@ -168,7 +164,7 @@ function mergeObjects(obj1, obj2) {
 
   return result;
 }
-
+//stops searchAPI file//
 
 
 // map.js file

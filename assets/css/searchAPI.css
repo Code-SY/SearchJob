@@ -8,7 +8,7 @@
   }
   
   @keyframes spin {
-    0% { transform: rotate(0deg); -webkit-transform:; -moz-transform:; -ms-transform:; -o-transform:; }
+    0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
 
