@@ -1,8 +1,6 @@
 //<script src="searchAPI.js"></script>
 
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
-<<<<<<< HEAD
-=======
 $("button").on("click", function () { 
     var map = $(this).attr("data-map");
     var queryURL = "https://maps.googleapis.com/maps/api/js?" + map 
@@ -15,7 +13,6 @@ $("button").on("click", function () {
         var results = response.data;
     });
 });
->>>>>>> origin
 =======
 >>>>>>> 88dc6a08df25956eae5d78d2f664a4f72b404d7e
 

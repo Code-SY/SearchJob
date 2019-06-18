@@ -44,7 +44,6 @@ var searchJobs = function (searchCriteria, clickHandler) {
         {
             url: apiUri + apiQuery,
             method: "GET",
-            //************What is datatype JSONP?
             dataType: "jsonp"
         });
 
