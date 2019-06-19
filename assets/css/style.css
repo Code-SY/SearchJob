@@ -1,3 +1,8 @@
+*{  
+padding: 0;
+margin:  0;
+}
+
 body {
     background-color: #777;
 }
@@ -23,7 +28,7 @@ nav {
 
 section {
     float: left;
-    height: 445px;
+    height: 501px;
     width: 495px;
     box-sizing: border-box;
   padding: 20px;
@@ -36,17 +41,13 @@ section .title {
 
 aside {
     float: right;
-    height: 445px;
-    width: 495px;
+    height: 501px;
+    width: 725px;
     box-sizing: border-box;
-    padding: 20px;
+    padding: 3px;
     margin: 10px;
 }
 
-
-/* footer {
-    margin-top: 20px;
-} */
 
 .clear {
     clear: both;
@@ -130,12 +131,28 @@ footer {
     }
 }
 
+/* Hover */
+#logo:hover,
+input[type=submit]:hover {
+	background: #5e7f7e;
+}
+
 h1 {
   color:rgb(40, 6, 189);font-weight: bold;
   font-size: 40px;
   text-align: center;
   padding: 20px;
   }
+
+  h2{
+    color: rgb(40, 6, 189);
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+    background-color: azure;
+}
+  
 #wrapper1 {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
