@@ -2,52 +2,53 @@
 // app.js
 $(document).ready(function () {
   $("#searchBtn").click(function (evt) {
-      evt.preventDefault();
+    evt.preventDefault();
 
-      var searchTerms = $("#searchTerms").val();
-      var searchLocation = $("#searchLocation").val();
-      
-      var criteria = {
-          keywords: searchTerms,
-          location: searchLocation
-      };
+    var searchTerms = $("#searchTerms").val();
+    var searchLocation = $("#searchLocation").val();
 
-      searchJobs(criteria, showOnMapHandler);
+    var criteria = {
+      keywords: searchTerms,
+      location: searchLocation
+    };
+
+    searchJobs(criteria, showOnMapHandler);
   });
 });
 
-
+/*
 var marker = new google.maps.Marker({
-  position: { lat: 44 , lng: -122 },
+  position: { lat: 44, lng: -122 },
   map: map,
   title: "hello world",
-  
+
 });
+
 
 marker.addListener('click', function () {
   infowindow.open(map, marker);
 });
-
+*/
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
-var showOnMapHandler = function(job) {
+var showOnMapHandler = function (job) {
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
   $("#job-description").html(job.description);
   $("#job-description").dialog({
-      title: job.title,
-      width: 600,
-      height: 500,
-      closeOnEscape: true,
-      resizable: true,
-      classes: {
-          "ui-dialog": "modal-content",
-          "ui-dialog-titlebar": "modal-header",
-          "ui-dialog-title": "modal-title",
-          "ui-dialog-content": "modal-body"
-      }
+    title: job.title,
+    width: 600,
+    height: 500,
+    closeOnEscape: true,
+    resizable: true,
+    classes: {
+      "ui-dialog": "modal-content",
+      "ui-dialog-titlebar": "modal-header",
+      "ui-dialog-title": "modal-title",
+      "ui-dialog-content": "modal-body"
+    }
   });
 
   console.log(job);
@@ -107,7 +108,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
         location = location.split(" or ")[0];
         location = location.replace(/"/gm, "");
       }
- 
+
       var job = {
         id: searchItem.id,
         title: searchItem.title,
@@ -201,60 +202,79 @@ var MAP = $.get(
     dataType: "json"
   });
 
-  $(".search-btn").on("click", function() {
-console.log($("#job-text").val())
-  })
-  new google.maps.Geocoder();
-  var name = " ";
-  var city = " ";
-  var state = " ";
-  // changing address to an object array
-  //var address = [name, city, state];
-  var address = [{
-    name: "",
-    city: "",
-    state: ""
-  }];
-console.log(address);
-  Geocoder.geocode({'address': address}, function(results, status) {
-  
-    if (status == google.maps.GeocoderStatus.OK) {
+$(".search-btn").on("click", function () {
+  console.log($("#job-text").val())
+})
+var geocider;
+var map;
+var address = [{
+name: "",
+city: "",
+state: ""
+}];
+function initateGeo(){ 
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var mapOptions = {
+    zoom: 8,
+    center: latlng
+  }
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
+
+function codeAddress() {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({ 'address': address }, function (results, status) {
+    if (status == 'OK') {
       var latitude = results[0].geometry.location.lat();
       var longitude = results[0].geometry.location.lng();
       alert(latitude);
       alert(longitude);
     }
-    });
-   
-function initMap() { //this is just an example. Will remove for name, city, state
-  var options = {
-    zoom: 3, //highest value is 14
-    center: { lat: 42, lng: -70 }//latitude and longitude go here. 
-  }
-  //creates the map
-  var map = new google.maps.Map(document.getElementById('map'), options);
-  google.maps.event.addListener(map, 'click',
-    function (event) {
-      addMarker();
-    });
-  //creates the marker
-  // added var to markers = [   ]    mh
-  var markers = [
-    addMarker({ name,
-       city, 
-       state
-       })
-  ];
-
-  for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
-    addMarker([i]);
-  }
-
-  function addMarker(coords) { //coords is whatever variable is used in searchAPI
-    var marker = new google.maps.Marker({
-      position: props.coords,
-      map: map,
-      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    });
-  }
+    else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
 }
+
+  function initMap() { //this is just an example. Will remove for name, city, state
+    var options = {
+      zoom: 10, //highest value is 14
+      center: { lat: 47.608013, lng: -122.335167 }//latitude and longitude go here. 
+    }
+    //creates the map
+    map = new google.maps.Map(document.getElementById('map'), options);
+    google.maps.event.addListener(map, 'click',
+      function (event) {
+        addMarker();
+      });
+    //creates the marker
+    // added var to markers = [   ]    mh
+   /* var markers = [
+      addMarker({
+        name,
+        city,
+        state
+      })
+    ];
+*/
+    var myLatLng = { lat: 47.608013, lng: -122.335167 };
+    var marker = new google.maps.Marker({
+      position: myLatLng,
+      map: map,
+      title: 'Hello World!'
+    });
+  }
+
+    // for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
+    //   addMarker([i]);
+    // }
+
+    // function addMarker(coords) { //coords is whatever variable is used in searchAPI
+    //   var marker = new google.maps.Marker({
+    //     position: props.coords,
+    //     map: map,
+    //     icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+    //   });
+    // }
+  
