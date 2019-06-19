@@ -1,47 +1,60 @@
 
 // app.js
 $(document).ready(function () {
-  $("#search").click(function (evt) {
-    evt.preventDefault();
+  $("#searchBtn").click(function (evt) {
+      evt.preventDefault();
 
-    var searchTerms = $("#searchTerms").val();
+      var searchTerms = $("#searchTerms").val();
+      var searchLocation = $("#searchLocation").val();
+      
+      var criteria = {
+          keywords: searchTerms,
+          location: searchLocation
+      };
 
-    var criteria = {
-      keywords: searchTerms,
-      location: ""
-    };
-
-    searchJobs(criteria, showOnMapHandler);
+      searchJobs(criteria, showOnMapHandler);
   });
+});
+
+
+var marker = new google.maps.Marker({
+  position: { lat: 44 , lng: -122 },
+  map: map,
+  title: "hello world",
+  
+});
+
+marker.addListener('click', function () {
+  infowindow.open(map, marker);
 });
 
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
-var showOnMapHandler = function (job) {
+var showOnMapHandler = function(job) {
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
   $("#job-description").html(job.description);
+  $("#job-description").dialog({
+      title: job.title,
+      width: 600,
+      height: 500,
+      closeOnEscape: true,
+      resizable: true,
+      classes: {
+          "ui-dialog": "modal-content",
+          "ui-dialog-titlebar": "modal-header",
+          "ui-dialog-title": "modal-title",
+          "ui-dialog-content": "modal-body"
+      }
+  });
 
   console.log(job);
 }
 // searchAPI js file
-//***********Added the searchAPI.js to index.html */
-// Moved to app.js
-//$(document).ready(function () {
-//    $("#search").click(function () {
-//        searchJobs(criteria, clickHandler);
-//    });
-//});
-//var criteria = {
-//    keywords: "javascript, php, ruby",
-//    location: ""
-//}
-// *************Why the name containerID?
-var containerId = "#search-results";
-console.log(containerId);
 
+var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
   // Validate input
   if (searchCriteria.keywords === "") {
@@ -85,6 +98,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
       var searchItem = searchResult.listings.listing[i];
 
       var locationTemp = searchItem.company.location;
+      console.log(locationTemp);
       var location = "Unknown";
 
       if (locationTemp) {
@@ -94,7 +108,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
         location = location.split(" or ")[0];
         location = location.replace(/"/gm, "");
       }
-
+ 
       var job = {
         id: searchItem.id,
         title: searchItem.title,
@@ -168,10 +182,9 @@ function mergeObjects(obj1, obj2) {
 
   return result;
 }
+//end searchAPI file//
 
-
-
-// map.js file
+//=========== map.js file==============================================
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
 var MapLimit = {
@@ -189,13 +202,22 @@ var MAP = $.get(
     dataType: "json"
   });
 
+  $(".search-btn").on("click", function() {
+console.log($("#job-text").val())
+  })
   new google.maps.Geocoder();
-  var name = "";
-  var city = "";
-  var state = "";
-  var address = [name, city, state];
-
-  geocoder.geocode({'address': address}, function(results, status) {
+  var name = " ";
+  var city = " ";
+  var state = " ";
+  // changing address to an object array
+  //var address = [name, city, state];
+  var address = [{
+    name: "",
+    city: "",
+    state: ""
+  }];
+console.log(address);
+  Geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
       var latitude = results[0].geometry.location.lat();
@@ -205,7 +227,7 @@ var MAP = $.get(
     }
     });
    
-function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
+function initMap() { //this is just an example. Will remove for name, city, state
   var options = {
     zoom: 3, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
@@ -214,11 +236,15 @@ function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remov
   var map = new google.maps.Map(document.getElementById('map'), options);
   google.maps.event.addListener(map, 'click',
     function (event) {
-      addMarker({ name, city, state });
+      addMarker();
     });
   //creates the marker
-  markers = [
-    addMarker({ name, city, state })
+  // added var to markers = [   ]    mh
+  var markers = [
+    addMarker({ name,
+       city, 
+       state
+       })
   ];
 
   for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
