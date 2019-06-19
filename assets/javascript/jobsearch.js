@@ -1,41 +1,58 @@
 
 // app.js
 $(document).ready(function () {
-  $("#search").click(function (evt) {
+  $("#searchBtn").click(function (evt) {
       evt.preventDefault();
+
       var searchTerms = $("#searchTerms").val();
+      var searchLocation = $("#searchLocation").val();
+      
       var criteria = {
-          keywords: "javascript, php, ruby",
-          location: ""
+          keywords: searchTerms,
+          location: searchLocation
       };
 
-    searchJobs(criteria, showOnMapHandler);
+      searchJobs(criteria, showOnMapHandler);
   });
+});
+
+
+var marker = new google.maps.Marker({
+  position: { lat: 44 , lng: -122 },
+  map: map,
+  title: "hello world",
+  
+});
+
+marker.addListener('click', function () {
+  infowindow.open(map, marker);
 });
 
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
-var showOnMapHandler = function (job) {
+var showOnMapHandler = function(job) {
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
   $("#job-description").html(job.description);
+  $("#job-description").dialog({
+      title: job.title,
+      width: 600,
+      height: 500,
+      closeOnEscape: true,
+      resizable: true,
+      classes: {
+          "ui-dialog": "modal-content",
+          "ui-dialog-titlebar": "modal-header",
+          "ui-dialog-title": "modal-title",
+          "ui-dialog-content": "modal-body"
+      }
+  });
 
   console.log(job);
 }
 // searchAPI js file
-//***********Added the searchAPI.js to index.html */
-// Moved to app.js
-//$(document).ready(function () {
-//    $("#search").click(function () {
-//        searchJobs(criteria, clickHandler);
-//    });
-//});
-//var criteria = {
-//    keywords: "javascript, php, ruby",
-//    location: ""
-//}
 
 var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
@@ -90,7 +107,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
         location = location.split(" or ")[0];
         location = location.replace(/"/gm, "");
       }
-
+ 
       var job = {
         id: searchItem.id,
         title: searchItem.title,
@@ -164,8 +181,7 @@ function mergeObjects(obj1, obj2) {
 
   return result;
 }
-//stops searchAPI file//
-
+//end searchAPI file//
 
 //=========== map.js file==============================================
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
