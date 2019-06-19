@@ -198,7 +198,7 @@ var MAP = $.get(
     state: ""
   }];
 console.log(address);
-  Geocoder.geocode({'address': address}, function(results, status) {
+  geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
       var latitude = results[0].geometry.location.lat();
