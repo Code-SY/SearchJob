@@ -201,7 +201,7 @@ var MAP = $.get(
     }
     });
    
-function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
+function initMap() { //this is just an example. Will remove for name, city, state
   var options = {
     zoom: 3, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
@@ -211,11 +211,11 @@ function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remov
   var map = new google.maps.Map(document.getElementById('map'), options);
   google.maps.event.addListener(map, 'click',
     function (event) {
-      addMarker({ name, city, state });
+      addMarker();
     });
 
   //creates the marker
-  var markers = addMarker({Starbucks, Bothell, WA});
+  var markers = addMarker();
 
   for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
     addMarker([i]);
