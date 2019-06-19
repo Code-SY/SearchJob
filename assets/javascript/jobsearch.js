@@ -17,6 +17,17 @@ $(document).ready(function () {
 });
 
 
+var marker = new google.maps.Marker({
+  position: { lat: 44 , lng: -122 },
+  map: map,
+  title: "hello world",
+  
+});
+
+marker.addListener('click', function () {
+  infowindow.open(map, marker);
+});
+
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
@@ -42,9 +53,8 @@ var showOnMapHandler = function(job) {
   console.log(job);
 }
 // searchAPI js file
-// *************Why the name containerID?
+
 var containerId = "#search-results";
-console.log(containerId);
 var searchJobs = function (searchCriteria, clickHandler) {
   // Validate input
   if (searchCriteria.keywords === "") {
