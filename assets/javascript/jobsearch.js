@@ -201,6 +201,9 @@ var MAP = $.get(
     dataType: "json"
   });
 
+  $(".search-btn").on("click", function() {
+console.log($("#job-text").val())
+  })
   new google.maps.Geocoder();
   var name = " ";
   var city = " ";
