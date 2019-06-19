@@ -17,20 +17,12 @@ $(document).ready(function () {
 });
 
 
-var marker = new google.maps.Marker({
-  position: { lat: 44 , lng: -122 },
-  map: map,
-  title: "hello world",
-  
-});
-
-marker.addListener('click', function () {
-  infowindow.open(map, marker);
-});
-
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
+
+
+
 var showOnMapHandler = function(job) {
   $(".job-selected").removeClass("job-selected");
 
@@ -98,6 +90,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
       var searchItem = searchResult.listings.listing[i];
 
       var locationTemp = searchItem.company.location;
+      console.log(locationTemp);
       var location = "Unknown";
 
       if (locationTemp) {
@@ -201,9 +194,9 @@ var MAP = $.get(
     dataType: "json"
   });
 
-  $(".search-btn").on("click", function() {
-console.log($("#job-text").val())
-  })
+//   $(".search-btn").on("click", function() {
+// console.log($("#job-text").val())
+//   })
   new google.maps.Geocoder();
   var name = " ";
   var city = " ";
@@ -216,7 +209,7 @@ console.log($("#job-text").val())
     state: ""
   }];
 console.log(address);
-  Geocoder.geocode({'address': address}, function(results, status) {
+  geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
       var latitude = results[0].geometry.location.lat();
