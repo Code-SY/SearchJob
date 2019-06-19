@@ -81,6 +81,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
       var searchItem = searchResult.listings.listing[i];
 
       var locationTemp = searchItem.company.location;
+      console.log(locationTemp);
       var location = "Unknown";
 
       if (locationTemp) {
