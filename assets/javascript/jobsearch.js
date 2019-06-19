@@ -17,20 +17,12 @@ $(document).ready(function () {
 });
 
 
-var marker = new google.maps.Marker({
-  position: { lat: 44 , lng: -122 },
-  map: map,
-  title: "hello world",
-  
-});
-
-marker.addListener('click', function () {
-  infowindow.open(map, marker);
-});
-
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
+
+
+
 var showOnMapHandler = function(job) {
   $(".job-selected").removeClass("job-selected");
 
@@ -202,9 +194,9 @@ var MAP = $.get(
     dataType: "json"
   });
 
-  $(".search-btn").on("click", function() {
-console.log($("#job-text").val())
-  })
+//   $(".search-btn").on("click", function() {
+// console.log($("#job-text").val())
+//   })
   new google.maps.Geocoder();
   var name = " ";
   var city = " ";
