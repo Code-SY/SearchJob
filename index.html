@@ -6,59 +6,79 @@
     <title>Job search Map Project </title>
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-
-    
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
         integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<<<<<<< HEAD
+=======
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+>>>>>>> a648686d20abc40fddf291b47fada2d980c0e283
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
 </head>
 
 <body>
-
     <div class="wrapper">
         <header class="alt-bg">
-        <div class="header">
-        <form>
-        <h1>Find A <span> Job</span>You </span>Love</h1>
+            <div class="header">
+                <form>
+                    <h1>Find A <span> Job</span>You </span>Love</h1>
             </div class="form-box">
-            <input id="job-text"class="search-field skills" name="search" type="text" placeholder="Job Tittle, keywords, Company ..." />
-            <input class="search-field location" name="location" type="text" placeholder="Location" />
-            <button class="search-btn" type="button">Search</button>
-        </div>
+            <input id="searchTerms" class="search-field skills" name="search" type="text"
+                placeholder="Job Tittle, keywords, Company ...">
+            <input id="searchLocation" class="search-field location" name="location" type="text" placeholder="Location">
+            <button id="searchBtn" class="search-btn" type="text">Search</button>
+    </div>
     </form>
     </div>
+    </header>
     </div>
-    <section class="alt-bg">
-        <div class="job">jobs go here</div>
-    </section>       
-
-    <aside class="alt-bg">
-<!-- Add the id=map for the map function. Also added an h1 tag mh -->
-        <h2>My Goggle Map</h2>
-        <div id="map"class="map"></div>
-    </aside>
-
+    <main id="wrapper1">
+        <div class="container">
+            <div class="row">
+                <!-- Search API result container -->
+                <div id="search-results" class="col-4">
+                </div>
+                <div id="job-description" style="display:none; overflow-y:scroll;">
+                </div>
+                <aside class="alt-bg">
+                    <!-- Add the id=map for the map function. Also added an h1 tag mh -->
+                    <h2>My Goggle Map</h2>
+                    <div id="map" class="map"></div>
+                </aside>
+            </div>
+    </main>
     <div class="clear"></div>
-    
     <!-- <footer class="alt-bg">
         <p class="title">footer</p>
     </footer> -->
     <footer> &copy; 2019 Project-1</footer>
+<<<<<<< HEAD
 </div>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&callback=initMap&Libraries=geometry,places"
 async defer></script>
 <script src="./assets/javascript/jobsearch.js"></script>
+=======
+    </div>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=geometry,places">
+        </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&callback=initMap"
+        async defer></script>
+    <script src="./assets/javascript/jobsearch.js"></script>
+>>>>>>> a648686d20abc40fddf291b47fada2d980c0e283
 
+    <!-- Templates needed for search API functionality -->
+    <div style="display:none;">
+        <div id="searchingTemplate" class="loader"></div>
+        <div id="noResultsTemplate">No results</div>
+        <div id="errorTemplate">Error happened</div>
+    </div>
 </body>
 
 </html>
