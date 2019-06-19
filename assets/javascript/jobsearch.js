@@ -2,14 +2,12 @@
 // app.js
 $(document).ready(function () {
   $("#search").click(function (evt) {
-    evt.preventDefault();
-
-    var searchTerms = $("#searchTerms").val();
-
-    var criteria = {
-      keywords: searchTerms,
-      location: ""
-    };
+      evt.preventDefault();
+      var searchTerms = $("#searchTerms").val();
+      var criteria = {
+          keywords: "javascript, php, ruby",
+          location: ""
+      };
 
     searchJobs(criteria, showOnMapHandler);
   });
@@ -166,10 +164,10 @@ function mergeObjects(obj1, obj2) {
 
   return result;
 }
+//stops searchAPI file//
 
 
-
-// map.js file
+//=========== map.js file==============================================
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
 var MapLimit = {
@@ -188,12 +186,18 @@ var MAP = $.get(
   });
 
   new google.maps.Geocoder();
-  var name = "";
-  var city = "";
-  var state = "";
-  var address = [name, city, state];
-
-  geocoder.geocode({'address': address}, function(results, status) {
+  var name = " ";
+  var city = " ";
+  var state = " ";
+  // changing address to an object array
+  //var address = [name, city, state];
+  var address = [{
+    name: "",
+    city: "",
+    state: ""
+  }];
+console.log(address);
+  Geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
       var latitude = results[0].geometry.location.lat();
@@ -205,7 +209,7 @@ var MAP = $.get(
    
 function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
   var options = {
-    zoom: 8, //highest value is 14
+    zoom: 3, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
   }
   //creates the map
@@ -215,8 +219,12 @@ function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remov
       addMarker({ name, city, state });
     });
   //creates the marker
-  markers = [
-    addMarker({ name, city, state })
+  // added var to markers = [   ]    mh
+  var markers = [
+    addMarker({ name,
+       city, 
+       state
+       })
   ];
 
   for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker

@@ -5,87 +5,215 @@ margin:  0;
 
 body {
     background-color: #777;
-}
 
-.header {
+ }
+ 
+ .header {
   background-color: rgb(253, 246, 165);
   width: 100%
-}
-
-.alt-bg {
+ }
+ 
+ .alt-bg {
     color: #777;
     background-color: #ebebeb;
-}
-
-/* .wrapper {
-	width: 960px;
-	margin: 0 auto;
-} */
-
-nav {
+ }
+ 
+ /* .wrapper {
+     width: 960px;
+     margin: 0 auto;
+ } */
+ 
+ nav {
     margin-bottom: 20px;
+ }
+ 
+ section {
 }
 
-section {
+
     float: left;
     height: 501px;
     width: 495px;
     box-sizing: border-box;
   padding: 20px;
   margin: 15px;
-}
-
-section .title {
+ }
+ 
+ section .title {
     padding: 15px;
+ }
+ 
+ aside {
+
 }
 
-aside {
     float: right;
     height: 501px;
     width: 725px;
     box-sizing: border-box;
     padding: 3px;
     margin: 10px;
-}
 
-
+<<<<<<< HEAD
 .clear {
+=======
+ }
+ 
+ 
+ /* footer {
+    margin-top: 20px;
+ } */
+ 
+ .clear {
+>>>>>>> 79a0bffcced09b4d80d35446cc17ebaf8c8c8fb3
     clear: both;
+ }
+ 
+ span{
+
 }
 
-span{
   color:#f44336;
-}
-
-.search-field{
+ }
+ 
+ .search-field{
   height: 50px;
   padding: 10px;
   width: 400px;
+
+ }
+ 
+ .search-btn{
+
 }
 
-.search-btn{
+
   height: 57px;
   width:150px;
   border:none;
   background: green;
-}
-
-.skills{
+ }
+ 
+ .skills{
   width:400px;
-}
-
-.lacation{
+ }
+ 
+ .lacation{
   width: 200px;
-}
-
-.search-btn:hover{
+ }
+ 
+ .search-btn:hover{
   background: green;
   cursor: pointer;
-}
-
-.form-box{
+ }
+ 
+ .form-box{
   background: rgba(255, 255,255, 0.5);
   padding: 30px;
+ }
+ 
+ footer {
+     margin-top: 20px;
+ }
+ 
+ .clear {
+     clear: both;
+ }
+ 
+ 
+ @media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+ 
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+ 
+    #sidebar-wrapper {
+        width: 270px;
+    }
+ 
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+ 
+  #page-content-wrapper {
+      padding: 20px;
+      position: relative;
+  }
+ 
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+ }
+ 
+ h1 {
+  color:rgb(40, 6, 189);font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+  padding: 20px;
+  }
+ #wrapper1 {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+ }
+ 
+ 
+ /* .list-sidebar:hover {
+  color: red;
+  position: absolute;
+  margin: 0 0 0 10px;
+  width: 250px;
+  padding: 0;
+  list-style: none; */
+ /* } */
+ 
+ @media(min-width:768px) {
+  #wrapper {
+      padding-left: 250px;
+  }
+ 
+  #wrapper.toggled {
+      padding-left: 0;
+  }
+ 
+  #sidebar-wrapper {
+      width: 270px;
+  }
+ 
+  #wrapper.toggled #sidebar-wrapper {
+      width: 0;
+  }
+ 
+  #page-content-wrapper {
+      padding: 20px;
+      position: relative;
+  }
+ 
+  #wrapper.toggled #page-content-wrapper {
+      position: relative;
+      margin-right: 0;
+  }
+.loader {
+    /* this css added for search buttons*/
+    border: 8px solid #f3f3f3;
+    /* Light grey */
+    border-top: 8px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
 }
 /* added styling for map box mh*/
 #map{
@@ -93,6 +221,11 @@ span{
   width: 50vw;
 
 }
+
+
+.job-selected {
+    background-color: lightgray;
+}/* end search css*
 
 footer {
 	margin-top: 20px;
@@ -198,3 +331,4 @@ h1 {
       margin-right: 0;
   }
 }
+

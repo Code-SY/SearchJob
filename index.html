@@ -8,10 +8,16 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- jQuery library-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 
 </head>
@@ -30,9 +36,10 @@
         </div>
     </form>
     </div>
-    <section class="alt-bg">
+    </div>
+    <!--<section class="alt-bg">
         <div class="job">jobs go here</div>
-    </section>
+    </section>  -- - -for test-->
 
     <aside class="alt-bg">
 <!-- Add the id=map for the map function. Also added an h1 tag mh -->
@@ -50,12 +57,15 @@
     
 
 
+   <footer class=“alt-bg”>
+       <p class=“title”>footer</p>
+   </footer>
+   </div>
 
-<!-- added the call for the mapping function. added the script tags for google maps -->
-<script> 
-    function initMap(){
 
     }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&libraries=geometry,places">
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA&callback=initMap"
 async defer></script>
