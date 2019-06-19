@@ -139,4 +139,7 @@ function mergeObjects(obj1, obj2) {
 
     return result;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1404a45bb41c5ba2b5c8c0b95f6927ad25c6838b
