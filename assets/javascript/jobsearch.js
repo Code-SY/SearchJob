@@ -90,6 +90,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
       var searchItem = searchResult.listings.listing[i];
 
       var locationTemp = searchItem.company.location;
+      console.log(locationTemp);
       var location = "Unknown";
 
       if (locationTemp) {
@@ -208,7 +209,7 @@ var MAP = $.get(
     state: ""
   }];
 console.log(address);
-  Geocoder.geocode({'address': address}, function(results, status) {
+  geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
       var latitude = results[0].geometry.location.lat();
