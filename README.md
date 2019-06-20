@@ -31,12 +31,12 @@ Notable Concepts / Technologies Used
 
 API:
 
-.Google
+Google
 
-*Authentic
+Authentic
 
 
-*Media
+Media
 
 *Javascrip
 
