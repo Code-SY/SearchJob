@@ -2,7 +2,7 @@
 
 This is a project that will get a passing grade!
 
-We made a project of a single-page web application, built using the Javascript and APIs that displays a Google map, visibility to job's locations. Users can search for jobs and see thelocations.
+We made a project of a single-page web application, built using the Javascript and APIs that displays a Google map, visibility to job's locations. Users can search for jobs and see the locations.
 
 
 
@@ -12,7 +12,7 @@ Maryanne Heinbaugh> Project Manager=> 2Endeavor
 
 Everett Smith => Backend-Google Map => evepsmith15
 
-Sveta Yania => Backend-Job-Seach => code-sy
+Sveta Yanina => Backend-Job-Seach => code-sy
 
 Iman Gure=> Front-end HTML,CSS =>  ImanGurey
 
