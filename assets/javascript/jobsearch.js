@@ -203,19 +203,14 @@ var MAP = $.get(
     dataType: "json"
   });
 
-$(".search-btn").on("click", function () {
-  console.log($("#job-text").val())
-})
-var geocider;
+var geocoder;
 var map;
-var address = [{
-name: "",
-city: "",
-state: ""
-}];
-function initateGeo(){ 
+var marker, i;
+var markers = [];
+
+function initateGeo() {
   geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
+  var latlng = new google.maps.LatLng(39.0119, 98.4842);
   var mapOptions = {
     zoom: 8,
     center: latlng
@@ -238,44 +233,32 @@ function codeAddress() {
   });
 }
 
-  function initMap() { //this is just an example. Will remove for name, city, state
-    var options = {
-      zoom: 10, //highest value is 14
-      center: { lat: 47.608013, lng: -122.335167 }//latitude and longitude go here. 
-    }
-    //creates the map
-    map = new google.maps.Map(document.getElementById('map'), options);
-    google.maps.event.addListener(map, 'click',
-      function (event) {
-        addMarker();
-      });
-    //creates the marker
-    // added var to markers = [   ]    mh
-   /* var markers = [
-      addMarker({
-        name,
-        city,
-        state
-      })
-    ];
-*/
-    var myLatLng = { lat: 47.608013, lng: -122.335167 };
-    var marker = new google.maps.Marker({
-      position: myLatLng,
+$(("<div class='card-body'>")).on("click", function () {
+  console.log(containerRef.splice(0, 2));
+  for (i = 0; i < containerRef.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(containerRef[i][1], containerRef[i][2]),
       map: map,
-      title: 'Hello World!'
+      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
     });
+
+    markers.push(marker);
+
+    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+      return function () {
+        infowindow.setContent(containerRef[i][0]);
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
   }
 
-    // for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
-    //   addMarker([i]);
-    // }
+})
 
-    // function addMarker(coords) { //coords is whatever variable is used in searchAPI
-    //   var marker = new google.maps.Marker({
-    //     position: props.coords,
-    //     map: map,
-    //     icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
-    //   });
-    // }
-  
+function initMap() {
+  var options = {
+    zoom: 3, //highest value is 14
+    center: { lat: 39.0119, lng: 98.4842 }//latitude and longitude go here. 
+  }
+  //creates the map
+  map = new google.maps.Map(document.getElementById('map'), options);
+}
