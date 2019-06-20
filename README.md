@@ -8,9 +8,9 @@ Made a project of a single-page web application, built using the Javascript, tha
 
 Authors
 
-Maryanne H => Project Manager=> 2Endeavor
+Maryanne Heinbaugh> Project Manager=> 2Endeavor
 
-Everett Smith => Backend-Google => evepsmith15
+Everett Smith => Backend-Google Map => evepsmith15
 
 Sveta Yania => Backend-Job-Seach => code-sy
 
