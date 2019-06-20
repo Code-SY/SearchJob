@@ -24,13 +24,18 @@ Iman Gure=> Front-end HTML,CSS =>  ImanGurey
 
 Notable Concepts / Technologies Used
 
-API,Google, Authentic
+API:
 
-Media
+*Google
 
-Javascrip
+*Authentic
 
-Bootstrap
+
+*Media
+
+*Javascrip
+
+*Bootstrap
 
 
 
