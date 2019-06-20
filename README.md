@@ -2,7 +2,7 @@
 
 This is a project that will get a passing grade!
 
-Made a project of a single-page web application, built using the Javascript, that displays a Google map of areas of jobs avalible. Users can search for jobs and, locations.
+We made a project of a single-page web application, built using the Javascript and APIs that displays a Google map, visibility to job's locations. Users can search for jobs and see thelocations.
 
 
 
@@ -19,7 +19,6 @@ Iman Gure=> Front-end HTML,CSS =>  ImanGurey
 
 
 Notable Concepts / Technologies Used
-jQuery / ajax
 
 API,Google, Authentic
 
@@ -28,3 +27,8 @@ Media
 Javascrip
 
 Bootstrap
+
+
+# Link
+
+
