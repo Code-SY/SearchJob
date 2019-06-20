@@ -8,7 +8,7 @@ We made a project of a single-page web application, built using the Javascript a
 
 Authors
 
-Maryanne Heinbaugh> Project Manager=> 2Endeavor
+Maryanne Heinbaugh> Project Manager, Research & Testing=> 2Endeavor
 
 Everett Smith => Backend-Google Map => evepsmith15
 
