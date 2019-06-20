@@ -16,6 +16,8 @@ Sveta Yania => Backend-Job-Seach => code-sy
 
 Iman Gure=> Front-end HTML,CSS =>  ImanGurey
 
+
+
 Notable Concepts / Technologies Used
 jQuery / ajax
 
