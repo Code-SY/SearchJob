@@ -20,9 +20,6 @@ $(document).ready(function () {
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
-
-
-
 var showOnMapHandler = function(job) {
   $(".job-selected").removeClass("job-selected");
 
@@ -50,7 +47,7 @@ var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
   // Validate input
   if (searchCriteria.keywords === "") {
-    return false;
+    //return false;
   }
 
   $(containerId).empty();
@@ -90,7 +87,6 @@ var searchJobs = function (searchCriteria, clickHandler) {
       var searchItem = searchResult.listings.listing[i];
 
       var locationTemp = searchItem.company.location;
-      console.log(locationTemp);
       var location = "Unknown";
 
       if (locationTemp) {
@@ -176,7 +172,8 @@ function mergeObjects(obj1, obj2) {
 }
 //end searchAPI file//
 
-//=========== map.js file==============================================
+//--------------------------
+// map.js file
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
 var MapLimit = {
@@ -194,49 +191,20 @@ var MAP = $.get(
     dataType: "json"
   });
 
-//   $(".search-btn").on("click", function() {
-// console.log($("#job-text").val())
-//   })
-  new google.maps.Geocoder();
-  var name = " ";
-  var city = " ";
-  var state = " ";
-  // changing address to an object array
-  //var address = [name, city, state];
-  var address = [{
-    name: "",
-    city: "",
-    state: ""
-  }];
-console.log(address);
-  geocoder.geocode({'address': address}, function(results, status) {
-  
-    if (status == google.maps.GeocoderStatus.OK) {
-      var latitude = results[0].geometry.location.lat();
-      var longitude = results[0].geometry.location.lng();
-      alert(latitude);
-      alert(longitude);
-    }
-    });
-   
-function initMap() { //this is just an example. Will remove for name, city, state
+function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
   var options = {
-    zoom: 3, //highest value is 14
+    zoom: 8, //highest value is 14
     center: { lat: 42, lng: -70 }//latitude and longitude go here. 
   }
   //creates the map
   var map = new google.maps.Map(document.getElementById('map'), options);
   google.maps.event.addListener(map, 'click',
     function (event) {
-      addMarker();
+      addMarker({ name, city, state });
     });
   //creates the marker
-  // added var to markers = [   ]    mh
-  var markers = [
-    addMarker({ name,
-       city, 
-       state
-       })
+  markers = [
+    addMarker({ name, city, state })
   ];
 
   for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
