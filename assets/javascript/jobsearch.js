@@ -2,41 +2,55 @@
 // app.js
 $(document).ready(function () {
   $("#searchBtn").click(function (evt) {
-      evt.preventDefault();
+    evt.preventDefault();
 
-      var searchTerms = $("#searchTerms").val();
-      var searchLocation = $("#searchLocation").val();
-      
-      var criteria = {
-          keywords: searchTerms,
-          location: searchLocation
-      };
+    var searchTerms = $("#searchTerms").val();
+    var searchLocation = $("#searchLocation").val();
 
-      searchJobs(criteria, showOnMapHandler);
+    var criteria = {
+      keywords: searchTerms,
+      location: searchLocation
+    };
+
+    searchJobs(criteria, showOnMapHandler);
   });
 });
 
+/*
+var marker = new google.maps.Marker({
+  position: { lat: 44, lng: -122 },
+  map: map,
+  title: "hello world",
 
+});
+
+
+marker.addListener('click', function () {
+  infowindow.open(map, marker);
+});
+*/
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
+
 var showOnMapHandler = function(job) {
+
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
   $("#job-description").html(job.description);
   $("#job-description").dialog({
-      title: job.title,
-      width: 600,
-      height: 500,
-      closeOnEscape: true,
-      resizable: true,
-      classes: {
-          "ui-dialog": "modal-content",
-          "ui-dialog-titlebar": "modal-header",
-          "ui-dialog-title": "modal-title",
-          "ui-dialog-content": "modal-body"
-      }
+    title: job.title,
+    width: 600,
+    height: 500,
+    closeOnEscape: true,
+    resizable: true,
+    classes: {
+      "ui-dialog": "modal-content",
+      "ui-dialog-titlebar": "modal-header",
+      "ui-dialog-title": "modal-title",
+      "ui-dialog-content": "modal-body"
+    }
   });
 
   console.log(job);
@@ -96,7 +110,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
         location = location.split(" or ")[0];
         location = location.replace(/"/gm, "");
       }
- 
+
       var job = {
         id: searchItem.id,
         title: searchItem.title,
@@ -191,31 +205,62 @@ var MAP = $.get(
     dataType: "json"
   });
 
-function initMap(Starbucks, Bothell, WA) { //this is just an example. Will remove for name, city, state
-  var options = {
-    zoom: 8, //highest value is 14
-    center: { lat: 42, lng: -70 }//latitude and longitude go here. 
-  }
-  //creates the map
-  var map = new google.maps.Map(document.getElementById('map'), options);
-  google.maps.event.addListener(map, 'click',
-    function (event) {
-      addMarker({ name, city, state });
-    });
-  //creates the marker
-  markers = [
-    addMarker({ name, city, state })
-  ];
+var geocoder;
+var map;
+var marker, i;
+var markers = [];
 
-  for (var i = 0; i < markers.length; i++) { //for every new location given, add a marker
-    addMarker([i]);
+function initateGeo() {
+  geocoder = new google.maps.Geocoder();
+  var latlng = new google.maps.LatLng(39.0119, 98.4842);
+  var mapOptions = {
+    zoom: 8,
+    center: latlng
   }
+  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+}
 
-  function addMarker(coords) { //coords is whatever variable is used in searchAPI
-    var marker = new google.maps.Marker({
-      position: props.coords,
+function codeAddress() {
+  var address = document.getElementById('address').value;
+  geocoder.geocode({ 'address': address }, function (results, status) {
+    if (status == 'OK') {
+      var latitude = results[0].geometry.location.lat();
+      var longitude = results[0].geometry.location.lng();
+      alert(latitude);
+      alert(longitude);
+    }
+    else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
+$(("<div class='card-body'>")).on("click", function () {
+  console.log(containerRef.splice(0, 2));
+  for (i = 0; i < containerRef.length; i++) {
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(containerRef[i][1], containerRef[i][2]),
       map: map,
       icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
     });
+
+    markers.push(marker);
+
+    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+      return function () {
+        infowindow.setContent(containerRef[i][0]);
+        infowindow.open(map, marker);
+      }
+    })(marker, i));
   }
+
+})
+
+function initMap() {
+  var options = {
+    zoom: 3, //highest value is 14
+    center: { lat: 39.0119, lng: 98.4842 }//latitude and longitude go here. 
+  }
+  //creates the map
+  map = new google.maps.Map(document.getElementById('map'), options);
 }
