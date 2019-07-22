@@ -32,7 +32,9 @@ marker.addListener('click', function () {
 // Map integration point, this handler is attached to
 // click event on job posting area.
 // Parameter job has all available data for job posting
-var showOnMapHandler = function (job) {
+
+var showOnMapHandler = function(job) {
+
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
@@ -59,7 +61,7 @@ var containerId = "#search-results";
 var searchJobs = function (searchCriteria, clickHandler) {
   // Validate input
   if (searchCriteria.keywords === "") {
-    return false;
+    //return false;
   }
 
   $(containerId).empty();
@@ -99,7 +101,6 @@ var searchJobs = function (searchCriteria, clickHandler) {
       var searchItem = searchResult.listings.listing[i];
 
       var locationTemp = searchItem.company.location;
-      console.log(locationTemp);
       var location = "Unknown";
 
       if (locationTemp) {
@@ -185,7 +186,8 @@ function mergeObjects(obj1, obj2) {
 }
 //end searchAPI file//
 
-//=========== map.js file==============================================
+//--------------------------
+// map.js file
 var queryMap = "https://maps.googleapis.com/maps/api/js?";
 
 var MapLimit = {
