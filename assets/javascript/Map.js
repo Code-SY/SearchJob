@@ -11,9 +11,6 @@ $("button").on("click", function () {
         var results = response.data;
     });
 });
-=======
->>>>>>> 88dc6a08df25956eae5d78d2f664a4f72b404d7e
-
 var MapLimit = {
   api_key: "AIzaSyDfFFVUbCIclbpQ-QWoduSm8uPzbeNQBBA",
   page: 1,

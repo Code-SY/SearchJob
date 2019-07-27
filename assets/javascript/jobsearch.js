@@ -1,7 +1,6 @@
-
 // app.js
-$(document).ready(function () {
-  $("#searchBtn").click(function (evt) {
+$(document).ready(function() {
+  $("#searchBtn").click(function(evt) {
     evt.preventDefault();
 
     var searchTerms = $("#searchTerms").val();
@@ -34,7 +33,6 @@ marker.addListener('click', function () {
 // Parameter job has all available data for job posting
 
 var showOnMapHandler = function(job) {
-
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
@@ -54,11 +52,11 @@ var showOnMapHandler = function(job) {
   });
 
   console.log(job);
-}
+};
 // searchAPI js file
 
 var containerId = "#search-results";
-var searchJobs = function (searchCriteria, clickHandler) {
+var searchJobs = function(searchCriteria, clickHandler) {
   // Validate input
   if (searchCriteria.keywords === "") {
     //return false;
@@ -66,7 +64,6 @@ var searchJobs = function (searchCriteria, clickHandler) {
 
   $(containerId).empty();
   $("#job-description").empty();
-
 
   $(containerId).append($("#searchingTemplate").clone());
 
@@ -77,7 +74,7 @@ var searchJobs = function (searchCriteria, clickHandler) {
     page: 1,
     method: "aj.jobs.search",
     perpage: 20,
-    format: "json",
+    format: "json"
     //category: 4, // Front End Development
   };
 
@@ -85,14 +82,13 @@ var searchJobs = function (searchCriteria, clickHandler) {
 
   var apiQuery = $.param(apiParams);
 
-  var response = $.get(
-    {
-      url: apiUri + apiQuery,
-      method: "GET",
-      dataType: "jsonp"
-    });
+  var response = $.get({
+    url: apiUri + apiQuery,
+    method: "GET",
+    dataType: "jsonp"
+  });
 
-  response.done(function (response) {
+  response.done(function(response) {
     var searchResult = response;
 
     var jobs = [];
@@ -138,24 +134,44 @@ var searchJobs = function (searchCriteria, clickHandler) {
         var jobBodyRef = $("<div class='card-body'>");
         jobRef.append(jobBodyRef);
 
-        jobBodyRef.append($("<h5 class='card-title' style='font-weight:bold;'>" + job.title + "</h5>"));
-        jobBodyRef.append($("<div style='font-size:0.8em;font-style:italic;'>" + job.type + "</div>"));
-        jobBodyRef.append($("<div style='font-weight:bold;'>" + job.company.name + "</div>"));
-        jobBodyRef.append($("<div style='font-style:italic;'>" + job.location + "</div>"));
-        jobBodyRef.append($("<div style='font-size:0.5em;font-style:italic;'>" + job.postDate + "</div>"));
+        jobBodyRef.append(
+          $(
+            "<h5 class='card-title' style='font-weight:bold;'>" +
+              job.title +
+              "</h5>"
+          )
+        );
+        jobBodyRef.append(
+          $(
+            "<div style='font-size:0.8em;font-style:italic;'>" +
+              job.type +
+              "</div>"
+          )
+        );
+        jobBodyRef.append(
+          $("<div style='font-weight:bold;'>" + job.company.name + "</div>")
+        );
+        jobBodyRef.append(
+          $("<div style='font-style:italic;'>" + job.location + "</div>")
+        );
+        jobBodyRef.append(
+          $(
+            "<div style='font-size:0.5em;font-style:italic;'>" +
+              job.postDate +
+              "</div>"
+          )
+        );
 
         jobRef.click(clickHandler.bind(jobRef, job));
 
         containerRef.append(jobRef);
-      };
-    }
-    else {
+      }
+    } else {
       $(containerId).append($("#noResultsTemplate").clone());
     }
-
   });
 
-  response.fail(function (req, status, error) {
+  response.fail(function(req, status, error) {
     var containerRef = $(containerId);
     containerRef.empty();
 
@@ -163,14 +179,14 @@ var searchJobs = function (searchCriteria, clickHandler) {
   });
 
   return true;
-}
+};
 
-var clickHandler = function (job) {
+var clickHandler = function(job) {
   $(".job-selected").removeClass("job-selected");
 
   $(this).addClass("job-selected");
   $("#job-description").html(job.description);
-}
+};
 
 function mergeObjects(obj1, obj2) {
   var result = {};
@@ -198,12 +214,11 @@ var MapLimit = {
   format: "json"
 };
 
-var MAP = $.get(
-  {
-    url: queryMap + MapLimit,
-    method: "GET",
-    dataType: "json"
-  });
+var MAP = $.get({
+  url: queryMap + MapLimit,
+  method: "GET",
+  dataType: "json"
+});
 
 var geocoder;
 var map;
@@ -216,51 +231,54 @@ function initateGeo() {
   var mapOptions = {
     zoom: 8,
     center: latlng
-  }
-  map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  };
+  map = new google.maps.Map(document.getElementById("map"), mapOptions);
 }
 
 function codeAddress() {
-  var address = document.getElementById('address').value;
-  geocoder.geocode({ 'address': address }, function (results, status) {
-    if (status == 'OK') {
+  var address = document.getElementById("address").value;
+  geocoder.geocode({ address: address }, function(results, status) {
+    if (status == "OK") {
       var latitude = results[0].geometry.location.lat();
       var longitude = results[0].geometry.location.lng();
       alert(latitude);
       alert(longitude);
-    }
-    else {
-      alert('Geocode was not successful for the following reason: ' + status);
+    } else {
+      alert("Geocode was not successful for the following reason: " + status);
     }
   });
 }
 
-$(("<div class='card-body'>")).on("click", function () {
+$("<div class='card-body'>").on("click", function() {
   console.log(containerRef.splice(0, 2));
   for (i = 0; i < containerRef.length; i++) {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(containerRef[i][1], containerRef[i][2]),
       map: map,
-      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+      icon:
+        "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
     });
 
     markers.push(marker);
 
-    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-      return function () {
-        infowindow.setContent(containerRef[i][0]);
-        infowindow.open(map, marker);
-      }
-    })(marker, i));
+    google.maps.event.addListener(
+      marker,
+      "click",
+      (function(marker, i) {
+        return function() {
+          infowindow.setContent(containerRef[i][0]);
+          infowindow.open(map, marker);
+        };
+      })(marker, i)
+    );
   }
-
-})
+});
 
 function initMap() {
   var options = {
     zoom: 3, //highest value is 14
-    center: { lat: 39.0119, lng: 98.4842 }//latitude and longitude go here. 
-  }
+    center: { lat: 39.0119, lng: 98.4842 } //latitude and longitude go here.
+  };
   //creates the map
-  map = new google.maps.Map(document.getElementById('map'), options);
+  map = new google.maps.Map(document.getElementById("map"), options);
 }

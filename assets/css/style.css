@@ -11,8 +11,9 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .text {
-  
+
   color: rgb(40, 6, 189);
   font-weight: bold;
   font-size: 3em;
@@ -21,58 +22,67 @@ body {
   right: 0;
   padding: 1em;
   margin-left: auto;
-  margin-right:auto;
+  margin-right: auto;
 }
+
 span {
   color: rgb(172, 22, 12);
   -webkit-animation: mymove 3s infinite;
-    animation: mymove 3s infinite;
+  animation: mymove 3s infinite;
 }
+
 /* Chrome, Safari, Opera */
 @-webkit-keyframes mymove {
   from {
-      color: darkred;
+    color: darkred;
   }
 
   to {
-      color: yellow;
+    color: yellow;
   }
 }
 
 /* Standard syntax */
 @keyframes mymove {
   from {
-      color: darkred;
+    color: darkred;
   }
 
   to {
-      color: yellow;
+    color: yellow;
   }
 }
+
 .row {
   display: flex;
   margin-top: 1em;
 }
+
 .wrapper,
 #wrapper1 {
   display: flex;
 }
+
 #wrapper1 {
   margin: 1em;
 }
+
 .section .title {
   padding: 15px;
   margin: 30px;
 }
+
 .skills {
   margin-left: 4em;
 }
+
 .search-field,
 .skills {
   height: 2em;
   width: 15em;
   padding: 0.5em;
 }
+
 .search-btn {
   height: 2em;
   width: 5em;
@@ -80,19 +90,22 @@ span {
   background: rgb(36, 96, 228);
   margin: none;
 }
+
 .search-btn:hover {
   background: rgb(25, 172, 57);
   cursor: pointer;
 }
+
 .form-box {
   background: rgba(255, 255, 255, 0.5);
 }
-/* added styling for map box mh*/
+
 #map {
   height: 25em;
   width: 30em;
   margin-right: 0;
 }
+
 footer {
   background: #688f0c6d;
   font-size: 1em;
@@ -105,26 +118,27 @@ footer {
   right: 0;
   padding: 1em;
 }
+
 .loader {
-  /*BEGINING SEARCH API*/
   border: 8px solid #f3f3f3;
-  /* Light grey */
   border-top: 8px solid #3498db;
-  /* Blue */
   border-radius: 50%;
   width: 50px;
   height: 50px;
   animation: spin 2s linear infinite;
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
 }
+
 .job-selected {
   background-color: lightgray;
 }
-/* ENG SEARCHAPI CSS*/
+
