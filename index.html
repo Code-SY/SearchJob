@@ -13,7 +13,7 @@
         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -26,14 +26,14 @@
                 <h1>Find A <span> Job</span>You </span>Love</h1>
             </div>
             <form>
-    </div class="form-box">
-    <input id="searchTerms" class="search-field skills" name="search" type="text"
-        placeholder="Job Tittle, keywords, Company ...">
-    <input id="searchLocation" class="search-field location" name="location" type="text" placeholder="Location">
-    <button id="searchBtn" class="search-btn" type="text">Search</button>
-    </div>
-    </form>
-    </header>
+                </div class="form-box">
+                 <input id="searchTerms" class="search-field skills" name="search" type="text"
+                 placeholder="Job Tittle, Keywords, Company name...">
+                <input id="searchLocation" class="search-field location" name="location" type="text" placeholder="Location">
+                <button id="searchBtn" class="search-btn" type="text">Search</button>
+                </div>
+            </form>
+        </header>
     </div>
     <main id="wrapper1">
         <div class="container">
@@ -44,11 +44,13 @@
                 <div id="job-description" style="display:none; overflow-y:scroll;">
                 </div>
                 <aside class="map">
-                    <!-- Add the id=map for the map function. Also added an h1 tag mh -->
-                    <div id="map" class="map"></div>
+                <!-- Add the id=map for the map function. Also added an h1 tag mh -->
+                <div id="map" class="map"></div>
                 </aside>
             </div>
+        </div>
     </main>
+    
     <footer> &copy; 2019 Project-1</footer>
 
     <script
@@ -59,7 +61,7 @@
         <script src="assets/javascript/searchAPI.js"></script>
     <script src="./assets/javascript/jobsearch.js"></script>
 
-    <!-- Templates needed for search API functionality -->
+    <!-- Templates needed for search API functionality  will not shown on page-->
     <div style="display:none;">
         <div id="searchingTemplate" class="loader"></div>
         <div id="noResultsTemplate">No results</div>
